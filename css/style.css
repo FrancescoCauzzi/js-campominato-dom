@@ -63,3 +63,11 @@
 .__blue {
   background-color: #90d0d8;
 }
+
+.__black {
+  background-color: black;
+}
+
+.__pointer-events-none {
+  pointer-events: none;
+}
