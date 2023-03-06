@@ -29,11 +29,25 @@ function removeClickFromCSS() {
   }
 }
 
-// function to generate the grid
+// function to color all the cells that contain the 'bomb'
+function colorCellsBlack(arrayFromSet) {
+  let myCells = myContainerEl.querySelectorAll(".__cella");
+  for (let i = 0; i < myCells.length; i++) {
+    // console.log(myCells[i]);
+    // console.log(arrayFromSet[i]);
+    if (arrayFromSet.includes(Number(myCells[i].innerHTML))) {
+      myCells[i].style.backgroundColor = "black";
+    }
+  }
+}
+
+// function to generate the grid with all the functionalities
 
 function generateSquareGrid(rows, className, type, elementRecevingAppend) {
   let mySet = generateSetRandNumb(16, rows);
-  // console.log(mySet);
+  const arrayFromSet = Array.from(mySet);
+  //console.log(arrayFromSet);
+  //console.log(mySet);
 
   let score = 0;
   for (let i = 0; i < rows ** 2; i++) {
@@ -50,7 +64,9 @@ function generateSquareGrid(rows, className, type, elementRecevingAppend) {
         score++;
       } else {
         elementToAppend.classList.add("__black");
+        colorCellsBlack(arrayFromSet);
         removeClickFromCSS();
+
         // qui gestistico l'output dello score
         finalOutputEl.style.display = "block";
         finalOutputEl.innerHTML = `Hai perso, il tuo punteggio è: ${score}. Clicca su reset per poter giocare di nuovo`;
@@ -58,7 +74,9 @@ function generateSquareGrid(rows, className, type, elementRecevingAppend) {
       }
       if (score === rows ** 2 - mySet.size) {
         // console.log("You won");
+        colorCellsBlack(arrayFromSet);
         removeClickFromCSS();
+
         // qui gestistico l'output dello score
         finalOutputEl.style.display = "block";
         finalOutputEl.innerHTML = `Hai vinto, il tuo punteggio è: ${
