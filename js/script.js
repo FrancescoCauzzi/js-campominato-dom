@@ -53,7 +53,7 @@ function generateSquareGrid(rows, className, type, elementRecevingAppend) {
         removeClickFromCSS();
         // qui gestistico l'output dello score
         finalOutputEl.style.display = "block";
-        finalOutputEl.innerHTML = `Hai perso, il tuo punteggio è: ${score}. Clicca su reset per giocare di nuovo`;
+        finalOutputEl.innerHTML = `Hai perso, il tuo punteggio è: ${score}. Clicca su reset per poter giocare di nuovo`;
         // console.log("Hai perso, il tuo punteggio è: " + score);
       }
       if (score === rows ** 2 - mySet.size) {
@@ -63,7 +63,7 @@ function generateSquareGrid(rows, className, type, elementRecevingAppend) {
         finalOutputEl.style.display = "block";
         finalOutputEl.innerHTML = `Hai vinto, il tuo punteggio è: ${
           rows ** 2 - mySet.size
-        }. Clicca su reset per giocare di nuovo`;
+        }. Clicca su reset per poter giocare di nuovo`;
       }
     });
   }
