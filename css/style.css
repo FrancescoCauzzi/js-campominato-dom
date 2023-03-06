@@ -71,3 +71,7 @@
 .__pointer-events-none {
   pointer-events: none;
 }
+
+#final-output {
+  display: none;
+}

@@ -6,6 +6,7 @@ let playBtnEl = document.getElementById("play-btn");
 let resetBtnEl = document.getElementById("reset");
 // console.log(resetBtnEl);
 // console.log(myContainerEl);
+let finalOutputEl = document.getElementById("final-output");
 
 // FUNZIONI
 
@@ -31,8 +32,8 @@ function removeClickFromCSS() {
 // function to generate the grid
 
 function generateSquareGrid(rows, className, type, elementRecevingAppend) {
-  let mySet = generateSetRandNumb(3, rows);
-  console.log(mySet);
+  let mySet = generateSetRandNumb(16, rows);
+  // console.log(mySet);
 
   let score = 0;
   for (let i = 0; i < rows ** 2; i++) {
@@ -51,11 +52,18 @@ function generateSquareGrid(rows, className, type, elementRecevingAppend) {
         elementToAppend.classList.add("__black");
         removeClickFromCSS();
         // qui gestistico l'output dello score
-        console.log("Hai perso, il tuo punteggio è: " + score);
+        finalOutputEl.style.display = "block";
+        finalOutputEl.innerHTML = `Hai perso, il tuo punteggio è: ${score}. Clicca su reset per giocare di nuovo`;
+        // console.log("Hai perso, il tuo punteggio è: " + score);
       }
       if (score === rows ** 2 - mySet.size) {
-        console.log("You won");
+        // console.log("You won");
         removeClickFromCSS();
+        // qui gestistico l'output dello score
+        finalOutputEl.style.display = "block";
+        finalOutputEl.innerHTML = `Hai vinto, il tuo punteggio è: ${
+          rows ** 2 - mySet.size
+        }. Clicca su reset per giocare di nuovo`;
       }
     });
   }
@@ -64,7 +72,7 @@ function generateSquareGrid(rows, className, type, elementRecevingAppend) {
 function handlePLayClick() {
   // event.preventDefault();
   if (Number(difficultyEl.value) === 1) {
-    generateSquareGrid(4, "__cella", "div", myContainerEl);
+    generateSquareGrid(10, "__cella", "div", myContainerEl);
   } else if (Number(difficultyEl.value) === 2) {
     generateSquareGrid(9, "__cella", "div", myContainerEl);
   } else if (Number(difficultyEl.value) === 3) {
@@ -81,6 +89,7 @@ function handleResetClick() {
   for (let i = 0; i < cellsToRemove.length; i++) {
     myContainerEl.removeChild(cellsToRemove[i]);
   }
+  finalOutputEl.style.display = "none";
   playBtnEl.addEventListener("click", handlePLayClick);
 }
 
