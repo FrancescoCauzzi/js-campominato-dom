@@ -20,11 +20,21 @@ function generateSetRandNumb(setSize, n) {
   return myNumSet;
 }
 
+// function to add to the cell the class '.__pointer-events-none'
+function removeClickFromCSS() {
+  let myCells = myContainerEl.querySelectorAll(".__cella");
+  for (let i = 0; i < myCells.length; i++) {
+    myCells[i].classList.add("__pointer-events-none");
+  }
+}
+
 // function to generate the grid
 
 function generateSquareGrid(rows, className, type, elementRecevingAppend) {
-  let mySet = generateSetRandNumb(16, rows);
+  let mySet = generateSetRandNumb(3, rows);
+  console.log(mySet);
 
+  let score = 0;
   for (let i = 0; i < rows ** 2; i++) {
     let elementToAppend = document.createElement(type);
     elementToAppend.classList.add(className);
@@ -32,16 +42,20 @@ function generateSquareGrid(rows, className, type, elementRecevingAppend) {
     elementToAppend.style.aspectRatio = `1/1`;
     elementToAppend.innerHTML = `${i + 1}`;
     elementRecevingAppend.append(elementToAppend);
+
     elementToAppend.addEventListener("click", function () {
       if (!mySet.has(Number(elementToAppend.innerHTML))) {
         elementToAppend.classList.toggle("__blue");
+        score++;
       } else {
         elementToAppend.classList.add("__black");
-        let cellsToRemove = myContainerEl.querySelectorAll(".__cella");
-
-        for (let i = 0; i < cellsToRemove.length; i++) {
-          cellsToRemove[i].classList.add("__pointer-events-none");
-        }
+        removeClickFromCSS();
+        // qui gestistico l'output dello score
+        console.log("Hai perso, il tuo punteggio è: " + score);
+      }
+      if (score === rows ** 2 - mySet.size) {
+        console.log("You won");
+        removeClickFromCSS();
       }
     });
   }
@@ -50,7 +64,7 @@ function generateSquareGrid(rows, className, type, elementRecevingAppend) {
 function handlePLayClick() {
   // event.preventDefault();
   if (Number(difficultyEl.value) === 1) {
-    generateSquareGrid(10, "__cella", "div", myContainerEl);
+    generateSquareGrid(4, "__cella", "div", myContainerEl);
   } else if (Number(difficultyEl.value) === 2) {
     generateSquareGrid(9, "__cella", "div", myContainerEl);
   } else if (Number(difficultyEl.value) === 3) {
