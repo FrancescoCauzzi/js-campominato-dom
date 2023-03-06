@@ -36,7 +36,7 @@ function colorCellsBlack(arrayFromSet) {
     // console.log(myCells[i]);
     // console.log(arrayFromSet[i]);
     if (arrayFromSet.includes(Number(myCells[i].innerHTML))) {
-      myCells[i].style.backgroundColor = "black";
+      myCells[i].style.backgroundImage = "url('img/aseabomb.jpg')";
     }
   }
 }
