@@ -48,22 +48,24 @@ function generateSquareGrid(rows, className, type, elementRecevingAppend) {
   const arrayFromSet = Array.from(mySet);
   //console.log(arrayFromSet);
   //console.log(mySet);
-
   let score = 0;
   for (let i = 0; i < rows ** 2; i++) {
     let elementToAppend = document.createElement(type);
     elementToAppend.classList.add(className);
     elementToAppend.style.width = `calc(100% / ${rows})`;
     elementToAppend.style.aspectRatio = `1/1`;
+    elementToAppend.style.backgroundImage = "url('img/awholecoconut.png')";
+
     elementToAppend.innerHTML = `${i + 1}`;
     elementRecevingAppend.append(elementToAppend);
 
     elementToAppend.addEventListener("click", function () {
       if (!mySet.has(Number(elementToAppend.innerHTML))) {
-        elementToAppend.classList.toggle("__blue");
+        elementToAppend.style.backgroundImage = "url('img/abittencoconut.png')";
         score++;
       } else {
-        elementToAppend.classList.add("__black");
+        // elementToAppend.classList.add("__black");
+        elementToAppend.style.backgroundImage = "url('img/aseabomb.jpg')";
         colorCellsBlack(arrayFromSet);
         removeClickFromCSS();
 

@@ -6,6 +6,9 @@
 
 .__my-nav-bar {
   padding: 20px 10px 20px 10px;
+  background-image: url(../img/navbg3.jpg);
+  background-size: 100%;
+  color: white;
 }
 
 .__img-logo-container {
@@ -20,10 +23,13 @@
 
 .__main-container-outer {
   /* background-color: #7fffd4; */
-  background-image: linear-gradient(to right, green, white, red);
+  /* background-image: linear-gradient(to right, green, white, red); */
   min-height: 82vh;
-  object-fit: contain;
+
   padding: 20px 0px 20px 0px;
+  background-image: url(../img/bgimage2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 
   /* padding-top: 70px;
   padding-bottom: 20px; */
@@ -48,6 +54,10 @@
   align-items: center;
   font-size: 2em;
   font-weight: bold;
+  /* background-image: url(../img/awholecoconut.png); */
+  /* background-image: url(../img/abittencoconut.png); */
+  background-size: cover;
+  background-repeat: no-repeat;
   /* aspect-ratio: 1/1; */
   /* width: 10px;
   height: 10px; */
@@ -58,6 +68,8 @@
 .__my-footer-div {
   background-color: #f8f9fa;
   padding: 20px 10px 20px 10px;
+  background-image: url(../img/navbg3.jpg);
+  color: white;
 }
 
 .__blue {
