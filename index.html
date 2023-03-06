@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS campominato grid</title>
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <!-- my css -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary __my-nav-bar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="https://boolean.careers/">
+          <div class="__img-logo-container d-flex justify-content-center">
+            <img id="img-logo" src="img/logo.png" alt="">
+
+          </div>
+        </a>
+        <h1 class="fw-bold ">Campo minato</h1>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li> -->
+          </ul>
+          <div class="d-flex gap-3 align-items-center fs-2 ">
+            <label for="__difficoltà">Scegli un livello di difficoltà:</label>
+            <div class="dropdown   ">
+              <!--<button class="btn btn-secondary dropdown-toggle fs-3" type="button" data-bs-toggle="dropdown"
+                id="__difficoltà" aria-expanded="false">
+                Difficoltà
+              </button>
+               <ul class="dropdown-menu ">
+                <li><a class="dropdown-item fs-3" href="#" value="1" id="diffilcuty-easy">1. Easy</a></li>
+                <li><a class="dropdown-item fs-3" href="#" value="2">2. Hard</a></li>
+                <li><a class="dropdown-item fs-3" href="#" value="3">3. Fucking Hard</a></li>
+              </ul> -->
+              <select class="form-select fs-3" aria-label="Default select example" id="difficulty">
+
+                <option value="1" selected>1. Easy</option>
+                <option value="2">2. Hard</option>
+                <option value="3">3. Very Hard</option>
+              </select>
+
+            </div>
+            <button action="" class="btn btn-outline-success fs-3" type="" id="play-btn">Play</button>
+            <button action="" type="button" class="btn btn-outline-danger fs-3" id="reset">Reset</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class=" container-fluid __main-container-outer">
+      <!-- <img class='' src="img/campo_minato_bg.png" alt="" id="campo-minato-bg"> -->
+
+      <div class="__my-container ">
+
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    <div class="__my-footer-div d-flex fs-2 px-3 fw-medium align-items-center">
+      <span>Made with <span>&#x2665;</span> by <a href="https://boolean.careers/">Boolean</a></span>
+
+    </div>
+
+  </footer>
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- my script -->
+  <script src="js/script.js"></script>
+</body>
+
+</html>
