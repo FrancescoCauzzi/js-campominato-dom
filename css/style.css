@@ -24,8 +24,7 @@
 .__main-container-outer {
   /* background-color: #7fffd4; */
   /* background-image: linear-gradient(to right, green, white, red); */
-  min-height: 82vh;
-
+  min-height: 85vh;
   padding: 20px 0px 20px 0px;
   background-image: url(../img/bgimage2.jpg);
   background-size: cover;

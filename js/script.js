@@ -10,7 +10,7 @@ let finalOutputEl = document.getElementById("final-output");
 
 // FUNZIONI
 
-// function to generate 16 random numbers
+// function to generate a Set of 16 random numbers
 function generateSetRandNumb(setSize, n) {
   let myNumSet = new Set();
 
@@ -22,16 +22,16 @@ function generateSetRandNumb(setSize, n) {
 }
 
 // function to add to the cell the class '.__pointer-events-none'
-function removeClickFromCSS() {
-  let myCells = myContainerEl.querySelectorAll(".__cella");
+function removeClickFromCSS(className, classToAdd) {
+  let myCells = myContainerEl.querySelectorAll(`.${className}`);
   for (let i = 0; i < myCells.length; i++) {
-    myCells[i].classList.add("__pointer-events-none");
+    myCells[i].classList.add(classToAdd);
   }
 }
 
-// function to color all the cells that contain the 'bomb'
-function colorCellsBlack(arrayFromSet) {
-  let myCells = myContainerEl.querySelectorAll(".__cella");
+// function to add an image to the cells that contain the 'bomb'
+function showBombImage(arrayFromSet, className) {
+  let myCells = myContainerEl.querySelectorAll(`.${className}`);
   for (let i = 0; i < myCells.length; i++) {
     // console.log(myCells[i]);
     // console.log(arrayFromSet[i]);
@@ -55,19 +55,20 @@ function generateSquareGrid(rows, className, type, elementRecevingAppend) {
     elementToAppend.style.width = `calc(100% / ${rows})`;
     elementToAppend.style.aspectRatio = `1/1`;
     elementToAppend.style.backgroundImage = "url('img/awholecoconut.png')";
-
     elementToAppend.innerHTML = `${i + 1}`;
+    elementToAppend.style.cursor = "pointer";
     elementRecevingAppend.append(elementToAppend);
 
     elementToAppend.addEventListener("click", function () {
       if (!mySet.has(Number(elementToAppend.innerHTML))) {
         elementToAppend.style.backgroundImage = "url('img/abittencoconut.png')";
+        elementToAppend.style.pointerEvents = "none";
         score++;
       } else {
         // elementToAppend.classList.add("__black");
         elementToAppend.style.backgroundImage = "url('img/aseabomb.jpg')";
-        colorCellsBlack(arrayFromSet);
-        removeClickFromCSS();
+        showBombImage(arrayFromSet, className);
+        removeClickFromCSS(className, "__pointer-events-none");
 
         // qui gestistico l'output dello score
         finalOutputEl.style.display = "block";
@@ -76,8 +77,8 @@ function generateSquareGrid(rows, className, type, elementRecevingAppend) {
       }
       if (score === rows ** 2 - mySet.size) {
         // console.log("You won");
-        colorCellsBlack(arrayFromSet);
-        removeClickFromCSS();
+        showBombImage(arrayFromSet, className);
+        removeClickFromCSS(className, "__pointer-events-none");
 
         // qui gestistico l'output dello score
         finalOutputEl.style.display = "block";
