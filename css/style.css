@@ -5,7 +5,7 @@
 }
 
 .__my-nav-bar {
-  padding: 20px 10px 20px 10px;
+  padding: 5px 2px 5px 2px;
   background-image: url(../img/navbg3.jpg);
   background-size: 100%;
   color: white;
@@ -25,7 +25,8 @@
   /* background-color: #7fffd4; */
   /* background-image: linear-gradient(to right, green, white, red); */
   min-height: 85vh;
-  padding: 20px 0px 20px 0px;
+  /* max-height: 85vh; */
+  padding: 10px 0px 10px 0px;
   background-image: url(../img/bgimage2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -60,13 +61,13 @@
   /* aspect-ratio: 1/1; */
   /* width: 10px;
   height: 10px; */
-  /*height: 40px; */
+  height: 80px;
 }
 
 /* footer */
 .__my-footer-div {
   background-color: #f8f9fa;
-  padding: 20px 10px 20px 10px;
+  padding: 5px 2px 5px 2px;
   background-image: url(../img/navbg3.jpg);
   color: white;
 }
